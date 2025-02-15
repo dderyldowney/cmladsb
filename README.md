@@ -52,6 +52,7 @@ Inside the image this Dockerfile creates, if you just attach to it or Run In Con
 ```bash
 source venv/bin/activate
 ```
+because the image's CMD gets overriden when you launch it manually.
 
 If, for some reason, after loading the virtualenv, the packages don't show when you run ``pip list --local``, 
 just run the command:
