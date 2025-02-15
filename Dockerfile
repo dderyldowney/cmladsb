@@ -82,4 +82,4 @@ RUN /usr/bin/zsh -c ". ~/.zshrc \
 SHELL ["/usr/bin/zsh", "-c"]
 
 # Use shell form to run multiple commands in CMD
-CMD ["zsh", "-c", "source ~/.zshrc && pyenv activate venv && exec zsh"]
+CMD ["zsh", "-c", "source ~/.zshrc && source venv/bin/activate && exec zsh"]
