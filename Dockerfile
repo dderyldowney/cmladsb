@@ -45,6 +45,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 USER $USER_NAME
 WORKDIR /home/$USER_NAME
 
+COPY --chown=$USER_NAME:$USER_NAME requirements.txt /home/$USER_NAME/
+
 # Install oh-my-zsh and pyenv, configure environment in one layer
 ENV PYENV_ROOT=/home/$USER_NAME/.pyenv
 ENV PATH=$PYENV_ROOT/bin:$PATH
@@ -73,7 +75,8 @@ RUN /usr/bin/zsh -c "eval $(pyenv init --path) \
 
 RUN /usr/bin/zsh -c ". ~/.zshrc \
     && pyenv activate venv \
-    && pip install --no-cache-dir --upgrade pip"
+    && pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt"
 
 # Set default shell to zsh
 SHELL ["/usr/bin/zsh", "-c"]
