@@ -2,7 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,ruby,rails,linux,macos
 # Ignore VS Code settings (unless project-specific configs are needed)
 .vscode/
-
+.devcontainer/
+`
 # Ignore coverage reports
 .coverage
 htmlcov/
