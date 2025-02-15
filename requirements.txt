@@ -4,7 +4,10 @@ cfgv==3.4.0
 click==8.1.8
 distlib==0.3.9
 filelock==3.17.0
+flake8==7.1.1
 identify==2.6.7
+ipykernel==6.29.5
+ipython==8.32.0
 mypy==1.15.0
 mypy-extensions==1.0.0
 nodeenv==1.9.1
