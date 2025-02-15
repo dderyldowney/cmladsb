@@ -10,6 +10,7 @@ ARG UID=1000
 ARG GID=1000
 ARG DEBIAN_FRONTEND=noninteractive
 ARG PYTHON_VERSION=3.12.9
+ARG VENV_NAME=cmladsb
 
 # Install system dependencies and create user in one layer to reduce image size
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -71,10 +72,10 @@ RUN /usr/bin/zsh -c "eval $(pyenv init --path) \
     && eval $(pyenv virtualenv-init -) \
     && pyenv install $PYTHON_VERSION \
     && pyenv global $PYTHON_VERSION \
-    && pyenv virtualenv $PYTHON_VERSION venv"
+    && python -m venv --prompt $VENV_NAME venv"
 
-RUN /usr/bin/zsh -c ". ~/.zshrc \
-    && pyenv activate venv \
+RUN /usr/bin/zsh -c "source $HOME/.zshrc \
+    && source venv/bin/activate \
     && pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt"
 
