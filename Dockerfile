@@ -74,6 +74,13 @@ RUN /usr/bin/zsh -c "eval $(pyenv init --path) \
     && pyenv global $PYTHON_VERSION \
     && python -m venv --prompt $VENV_NAME venv"
 
+ENV VIRTUAL_ENV=$HOME/venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+ENV PYTHONIOENCODING=utf-8
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+ENV LANGUAGE=C.UTF-8
+
 RUN /usr/bin/zsh -c "source $HOME/.zshrc \
     && source venv/bin/activate \
     && pip install --no-cache-dir --upgrade pip \
