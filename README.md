@@ -138,3 +138,11 @@ docker run --rm -it cmladsb
 - Customizing the build arguments allows you to tailor the container to your specific needs, such as using a different Python version or virtual environment name.
 - If you run the container detached, you can find the token needed for login under the container's 'Vew Details', which is under the 3-dot elipse to the far right of it's name in the Docker Desktop GUI's Containers view. It's between the Stop and the Delete icons.
 - The container can be used for general Python programming, without running Jupyter Lab, easily by simply overriding the CMD instruction from the command line. More information can be found in the associated [Docker documentation](https://docs.docker.com/get-started/docker-concepts/running-containers/overriding-container-defaults/)
+- If you find that locales are causing an issue for you, please do the following.
+
+    ```bash
+    sudo locale-gen --purge
+    sudo dpkg-reconfigure locales
+    ```
+
+  At the resulting interactive prompt, simply select the appropriate number (97 for en_US.UTF-8 for example) for your locale and the system will regenerate the appropriate one and apply it system wide for you. Occasionally, generation of locale files are corrupted and need repair. This has been a glitch for years. This handles that for you, albeit through manual reconfiguration.
