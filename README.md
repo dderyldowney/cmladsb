@@ -40,7 +40,7 @@ The following build arguments can be customized during the build process to tail
 - **DEBIAN_FRONTEND**: `noninteractive`
   - Prevents interactive prompts during package installation, ensuring the build process is non-interactive.
 
-- **LOCALE**: `en_US.UTF-8`
+- **LOCALE**: `en_US.UTF-8` (default)
   - The default locale for the resulting image.
   - **Customization**: Set a different locale choice if en_US.UTF-8 is not workable for you.
 
