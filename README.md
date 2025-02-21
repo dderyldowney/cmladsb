@@ -40,6 +40,10 @@ The following build arguments can be customized during the build process to tail
 - **DEBIAN_FRONTEND**: `noninteractive`
   - Prevents interactive prompts during package installation, ensuring the build process is non-interactive.
 
+- **LOCALE**: `en_US.UTF-8`
+  - The default locale for the resulting image.
+  - **Customization**: Set a different locale choice if en_US.UTF-8 is not workable for you.
+
 - **PYTHON_VERSION**: `3.12.9` (default)
   - The version of Python to be installed using `pyenv`.
   - **Customization**: Set a different Python version by passing `--build-arg PYTHON_VERSION=<your_python_version>` during the build.
