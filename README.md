@@ -128,7 +128,7 @@ docker build -t cmladsb .
 Then, to create, and immediately use, a container from the resulting image:
 
 ```bash
-docker run --rm -it cmladsb
+docker run --rm -it -p 8888:8888 cmladsb
 ```
 
 ## Notes
