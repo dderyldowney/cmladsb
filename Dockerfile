@@ -49,7 +49,9 @@ WORKDIR /home/$USER_NAME
 
 # Copy necessary files
 COPY --chown=$USER_NAME:$USER_NAME requirements.txt README.md ./
-COPY --chown=$USER_NAME:$USER_NAME .jupyter/jupyter_server_config.py .jupyter/
+COPY --chown=$USER_NAME:$USER_NAME .jupyter ./.jupyter
+COPY --chown=$USER_NAME:$USER_NAME .config ./.config
+
 
 # Install Oh My Zsh, NVM, Pyenv, and pyenv-virtualenv and configure .zshrc in a single layer
 RUN /usr/bin/zsh -c "wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | bash \

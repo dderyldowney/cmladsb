@@ -1,0 +1,11 @@
+[plugin]
+enabled = true
+
+[pylsp]
+plugins.jedi_completion.enabled = true
+plugins.jedi_definition.enabled = true
+plugins.jedi_hover.enabled = true
+plugins.jedi_references.enabled = true
+plugins.jedi_signature_help.enabled = true
+plugins.jedi_symbols.enabled = true
+
