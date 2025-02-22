@@ -115,14 +115,14 @@ pip freeze --local > requirements.txt
 To build and run the Docker container, using a custom tag of jupyter-lab, with custom parameters:
 
 ```bash
-docker build -t jupyter-lab --build-arg USER_NAME=<your_username> --build-arg UID=<your_uid> --build-arg GID=<your_gid> --build-arg LOCALE=<your_locale> --build-arg PYTHON_VERSION=<your_python_version> --build-arg VENV_NAME=<your_venv_name> .
+docker buildx build -t jupyter-lab --build-arg USER_NAME=<your_username> --build-arg UID=<your_uid> --build-arg GID=<your_gid> --build-arg LOCALE=<your_locale> --build-arg PYTHON_VERSION=<your_python_version> --build-arg VENV_NAME=<your_venv_name> .
 docker run -p 8888:8888 jupyter-lab
 ```
 
 If you want to accept all the defaults specified in the Dockerfile itself, you can build just specifying:
 
 ```bash
-docker build -t cmladsb .
+docker buildx build -t cmladsb .
 ```
 
 Then, to create, and immediately use, a container from the resulting image:
