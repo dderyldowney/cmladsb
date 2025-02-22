@@ -372,7 +372,8 @@ c = get_config()  #noqa
 # c.ServerApp.jpserver_extensions = {}
 c.ServerApp.jpserver_extensions = {
     "jupyterlab": True,
-    "jupyter_lsp": True
+    "jupyter_lsp": True,
+    "jupyterlab_codemirror": True
 }
 
 c.LSPProxy.languages = {
