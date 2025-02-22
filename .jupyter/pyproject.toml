@@ -1,0 +1,3 @@
+[tool.jupyter-lsp]
+language_servers = { "python" = ["jedi-language-server"] }
+

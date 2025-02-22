@@ -370,6 +370,13 @@ c = get_config()  #noqa
 #  will be loaded in alphabetical order.
 #  Default: {}
 # c.ServerApp.jpserver_extensions = {}
+c.ServerApp.jpserver_extensions = {
+    "jupyterlab": True,
+    "jupyter_lsp": True
+}
+c.LSPProxy.languages = {
+    "python": ["jedi-language-server"]
+}
 
 ## The kernel manager class to use.
 #  Default: 'jupyter_server.services.kernels.kernelmanager.MappingKernelManager'
