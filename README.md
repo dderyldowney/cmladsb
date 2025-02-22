@@ -102,6 +102,10 @@ The installation packages are removed from the image prior to layer export to fu
 pip freeze --local > requirements.txt
 ```
 
+## Enhanced Code Editing Features
+
+Jupyter Lab support for LSP (Language Server Protocol) has been ebabled for tab completion in notebooks and Python files, powered by the Jedi Language Server. The CodeMirror extension is also enabled ensuring syntax highlighting and automatic addition of matching brackets and quotes as you type.
+
 ## Default Shell
 
 - The default shell is set to `/usr/bin/zsh`. This ensures that the user will use `zsh` as the default shell when they start a session in the container. However, `bash` is also installed along with the baseline `sh`.
@@ -115,14 +119,14 @@ pip freeze --local > requirements.txt
 To build and run the Docker container, using a custom tag of jupyter-lab, with custom parameters:
 
 ```bash
-docker buildx build -t jupyter-lab --build-arg USER_NAME=<your_username> --build-arg UID=<your_uid> --build-arg GID=<your_gid> --build-arg LOCALE=<your_locale> --build-arg PYTHON_VERSION=<your_python_version> --build-arg VENV_NAME=<your_venv_name> .
+docker build -t jupyter-lab --build-arg USER_NAME=<your_username> --build-arg UID=<your_uid> --build-arg GID=<your_gid> --build-arg LOCALE=<your_locale> --build-arg PYTHON_VERSION=<your_python_version> --build-arg VENV_NAME=<your_venv_name> .
 docker run -p 8888:8888 jupyter-lab
 ```
 
 If you want to accept all the defaults specified in the Dockerfile itself, you can build just specifying:
 
 ```bash
-docker buildx build -t cmladsb .
+docker build -t cmladsb .
 ```
 
 Then, to create, and immediately use, a container from the resulting image:

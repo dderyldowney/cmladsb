@@ -374,8 +374,17 @@ c.ServerApp.jpserver_extensions = {
     "jupyterlab": True,
     "jupyter_lsp": True
 }
+
 c.LSPProxy.languages = {
     "python": ["jedi-language-server"]
+}
+
+c.LabServerApp.settings = {  
+    '@jupyterlab/codemirror-extension:plugin': {
+        'mode': 'python',
+        'autoClosingBrackets': True,
+        'autoClosingQuotes': True
+    }
 }
 
 ## The kernel manager class to use.
