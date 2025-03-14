@@ -1,0 +1,12 @@
+# Hadolint configuration file
+
+# Linting rules
+ignored:
+  - DL3000  # Always use a specific base image
+  - DL3001  # Use a single RUN statement
+  - DL3002  # Avoid using apt-get update
+  - DL3003  # Use COPY instead of ADD
+  - DL3004  # Use a specific version for base images
+  - DL3046  # Avoid additional packages by specifying `--no-install-recommends`
+  - DL4000  # Use LABEL instruction with one key and description per line
+  
