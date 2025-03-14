@@ -29,7 +29,8 @@ ENV PYTHONIOENCODING=utf-8
 ENV TERM=xterm-256color
 ENV VENV_NAME=$VENV_NAME
 
-# Install system dependencies and create user in one layer to reduce image size
+# Installs system dependencies, create the user, install Oh My Zsh, NVM, Pyenv, pyenv-virtualenv, 
+# installs and globally sets the Python version, and does so as a single image layer.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     locales procps apt-transport-https ca-certificates sudo less \
     bash zsh gnupg ssh curl wget git vim build-essential libssl-dev \
@@ -41,48 +42,36 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && groupadd -g $GID $USER_NAME \
     && useradd -m -u $UID -g $GID -s /usr/bin/zsh $USER_NAME \
     && usermod -aG sudo $USER_NAME \
-    && echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USER_NAME
+    && echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USER_NAME \
+    && su - $USER_NAME -c "wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | bash" \
+    && su - $USER_NAME -c "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash" \
+    && su - $USER_NAME -c "git clone https://github.com/pyenv/pyenv.git /home/$USER_NAME/.pyenv" \
+    && su - $USER_NAME -c "git clone https://github.com/pyenv/pyenv-virtualenv.git /home/$USER_NAME/.pyenv/plugins/pyenv-virtualenv" \
+    && su - $USER_NAME -c "echo 'export NVM_DIR=\"\$HOME/.nvm\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo '[ -s \"\$NVM_DIR/nvm.sh\" ] && \. \"\$NVM_DIR/nvm.sh\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'export ZSH=\"\$HOME/.oh-my-zsh\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'ZSH_THEME=\"robbyrussell\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'plugins=(git)' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'source \$ZSH/oh-my-zsh.sh' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'export PYENV_ROOT=\"\$HOME/.pyenv\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'export PATH=\"\$PYENV_ROOT/bin:\$PATH\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'eval \"\$(pyenv init --path)\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'eval \"\$(pyenv init -)\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "echo 'eval \"\$(pyenv virtualenv-init -)\"' >> ~/.zshrc" \
+    && su - $USER_NAME -c "source ~/.zshrc && nvm install stable --delete-prefix && nvm alias default stable" \
+    && su - $USER_NAME -c "source ~/.zshrc && pyenv install $PYTHON_VERSION --keep && pyenv global $PYTHON_VERSION && rm -rf /home/$USER_NAME/.pyenv/sources"
 
-# Switch to the non-root user
+# Switch to non-root user. All commands from here are specifically for local environment to non-root user
 USER $USER_NAME
 WORKDIR /home/$USER_NAME
 
-# Copy necessary files
+# Copy all necessary files and directories.
 COPY --chown=$USER_NAME:$USER_NAME requirements.txt README.md ./
 COPY --chown=$USER_NAME:$USER_NAME .jupyter ./.jupyter
 COPY --chown=$USER_NAME:$USER_NAME .config ./.config
 
-
-# Install Oh My Zsh, NVM, Pyenv, and pyenv-virtualenv and configure .zshrc in a single layer
-RUN /usr/bin/zsh -c "wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | bash \
-    && wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash \
-    && git clone https://github.com/pyenv/pyenv.git /home/\$USER_NAME/.pyenv \
-    && git clone https://github.com/pyenv/pyenv-virtualenv.git /home/\$USER_NAME/.pyenv/plugins/pyenv-virtualenv \
-    && echo 'export NVM_DIR=\"\$HOME/.nvm\"' >> ~/.zshrc \
-    && echo '[ -s \"\$NVM_DIR/nvm.sh\" ] && \. \"\$NVM_DIR/nvm.sh\"' >> ~/.zshrc \
-    && echo 'export ZSH=\"\$HOME/.oh-my-zsh\"' >> ~/.zshrc \
-    && echo 'ZSH_THEME=\"robbyrussell\"' >> ~/.zshrc \
-    && echo 'plugins=(git)' >> ~/.zshrc \
-    && echo 'source \$ZSH/oh-my-zsh.sh' >> ~/.zshrc \
-    && echo 'export PYENV_ROOT=\"\$HOME/.pyenv\"' >> ~/.zshrc \
-    && echo 'export PATH=\"\$PYENV_ROOT/bin:\$PATH\"' >> ~/.zshrc \
-    && echo 'eval \"\$(pyenv init --path)\"' >> ~/.zshrc \
-    && echo 'eval \"\$(pyenv init -)\"' >> ~/.zshrc \
-    && echo 'eval \"\$(pyenv virtualenv-init -)\"' >> ~/.zshrc"
-
-# Install Node.js (Stable), and set it as default
-RUN /usr/bin/zsh -c "source ~/.zshrc \
-    && nvm install stable \
-    && nvm alias default stable"
-
-# Install Python using pyenv, and create then stock a virtual environment
-RUN /usr/bin/zsh -c "source ~/.zshrc \
-    && pyenv install $PYTHON_VERSION \
-    && pyenv global $PYTHON_VERSION \
-    && pyenv virtualenv $PYTHON_VERSION $VENV_NAME \
-    && pyenv activate ${VENV_NAME} \
-    && pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt"
+# Create the virtual environment and install the required packages.
+RUN /usr/bin/zsh -c "source ~/.zshrc && pyenv virtualenv $PYTHON_VERSION $VENV_NAME && pyenv activate $VENV_NAME && pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt"
 
 # Set default shell to zsh
 SHELL ["/usr/bin/zsh"]
