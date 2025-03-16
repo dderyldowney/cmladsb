@@ -186,6 +186,8 @@ This set of modules ensures robust, scalable, and efficient workflows across dat
 
 The project provides an additional set of information on the various descriptions and examples of the breakdown of AI intelligence levels. It covers [`Artificial Intelligence (AI), Artificial Narrow Intelligence (ANI), and Artificial General Intelligence (AGI)`](AI_ANI_AGI.md) at a generalistic viewpoint. For those coming to platforms like this with the intent of learning Artificial intelligence, this is definitely a read for you.
 
+As I have time, I summarize the content of the git log stream into [WORK_DONE.md](WORK_DONE.md) as a more human readable and digestable format. I fully admit to using ANI services to accomplish this.
+
 ## Notes
 
 - WARNING: The image(s) resulting from this project are quite large. Be prepared for this in your storage
