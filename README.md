@@ -135,81 +135,52 @@ Then, to create, and immediately use, a container from the resulting image:
 docker run --rm -it -p 8888:8888 cmladsb
 ```
 
-## Capabilities Provisioning
+## Capability Provisioning
 
-By default, this project includes several Python packages specifically to provide code formatting, debugging, data analysis, machine learning, visualization, and computer vision capabilities. Below is a breakdown of each of those packages and its purpose.
+The following modules are utilized to support the project's functionality, ensuring efficient development, debugging, data processing, and machine learning capabilities.
 
-### Development & Code Quality
+### **Development & Debugging**
 
-- **[`black`](https://github.com/psf/black)**  
-  A code formatter that ensures consistent styling across Python files. It enforces PEP 8 compliance and improves readability by automatically formatting code.
+- `black` – Code formatter ensuring consistent Python style.
+- `debugpy` – Debugging tool enabling remote debugging.
+- `flake8` – Linter enforcing PEP 8 compliance.
 
-- **[`debugpy`](https://github.com/microsoft/debugpy)**  
-  A debugger for Python that integrates with VS Code and Jupyter notebooks. It allows for interactive debugging, breakpoints, and step execution.
+### **Interactive Computing & Notebooks**
 
-- **[`flake8`](https://github.com/PyCQA/flake8)**  
-  A static code analysis tool that enforces coding style rules and detects potential errors, such as unused imports and undefined variables.
+- `ipykernel` – Jupyter kernel for Python execution.
+- `ipython` – Interactive Python shell.
+- `jupyterlab` – Web-based interactive development environment.
+- `jupyterlab-server` – Backend server support for JupyterLab.
 
-### Interactive Computing & Notebooks
+### **Data Processing & Visualization**
 
-- **[`ipykernel`](https://github.com/ipython/ipykernel)**  
-  Provides the kernel for Jupyter notebooks, enabling interactive Python execution within JupyterLab.
+- `matplotlib` – Plotting library for data visualization.
+- `numpy` – Numerical computing library supporting large arrays and matrices.
+- `pandas` – Data manipulation and analysis library.
+- `seaborn` – Statistical data visualization built on Matplotlib.
 
-- **[`ipython`](https://github.com/ipython/ipython)**  
-  An enhanced interactive Python shell with features such as syntax highlighting, tab completion, and history management.
+### **Machine Learning & Scientific Computing**
 
-- **[`jupyterlab`](https://github.com/jupyterlab/jupyterlab)**  
-  The core JupyterLab IDE, which provides an interactive environment for working with Jupyter notebooks, Python scripts, and data science workflows.
+- `fairly` – Framework for reproducible research and AI workflows.
+- `scikit-learn` – Machine learning algorithms and tools.
+- `scipy` – Scientific computing and numerical analysis library.
+- `torch` – PyTorch deep learning framework.
+- `torchvision` – Computer vision tools for PyTorch.
 
-- **[`jupyterlab-server`](https://github.com/jupyterlab/jupyterlab_server)**  
-  Supports JupyterLab’s backend functionality, allowing it to serve notebooks and integrate with extensions.
+### **Computer Vision**
 
-### Data Science & Machine Learning
+- `opencv-python` – OpenCV bindings for computer vision applications.
 
-- **[`numpy`](https://github.com/numpy/numpy)**  
-  A fundamental package for numerical computing, supporting multi-dimensional arrays, linear algebra operations, and mathematical functions.
+### **Validation & Testing**
 
-- **[`pandas`](https://github.com/pandas-dev/pandas)**  
-  A powerful data manipulation library providing data structures like DataFrames and Series for structured data analysis.
+- `pydantic` – Data validation and settings management using Python type hints.
+- `pytest` – Testing framework for scalable and efficient test execution.
 
-- **[`scikit-learn`](https://github.com/scikit-learn/scikit-learn)**  
-  A machine learning library with tools for data preprocessing, classification, regression, clustering, and model evaluation.
+### **Web & API Integration**
 
-- **[`scipy`](https://github.com/scipy/scipy)**  
-  A scientific computing library that provides numerical integration, optimization, statistics, and signal processing functionalities.
+- `open-webui` – Web UI for interacting with models and applications. It is also the source of the website used in this image.
 
-- **[`torch`](https://pytorch.org/)**  
-  The PyTorch deep learning framework, used for developing neural networks, computer vision models, and natural language processing applications.
-
-- **[`torchvision`](https://github.com/pytorch/vision)**  
-  A companion library to PyTorch that provides datasets, model architectures, and image processing utilities for deep learning applications.
-
-- **[`pydantic`](https://github.com/pydantic/pydantic)**  
-  A data validation and settings management library based on Python type hints. Useful for ensuring correct input data structures in ML pipelines and APIs.
-
-### Data Visualization
-
-- **[`matplotlib`](https://github.com/matplotlib/matplotlib)**  
-  A comprehensive plotting library for creating static, animated, and interactive visualizations.
-
-- **[`seaborn`](https://github.com/mwaskom/seaborn)**  
-  A statistical data visualization library based on Matplotlib, providing high-level functions for drawing attractive and informative graphics.
-
-### Computer Vision
-
-- **[`opencv-python`](https://github.com/opencv/opencv-python)**  
-  A computer vision library used for image processing, feature detection, object recognition, and video analysis.
-
-### Utility Libraries
-
-- **[`tqdm`](https://github.com/tqdm/tqdm)**  
-  A progress bar library that enhances the readability of loops and long-running computations by displaying real-time progress.
-
-### Web UI & API Integration
-
-- **[`open-webui`](https://github.com/open-webui/open-webui)**  
-  A lightweight web-based UI for interacting with machine learning models, APIs, or chatbot applications.
-This particular package is what provides the web interface for this project.
+This set of modules ensures robust, scalable, and efficient workflows across data processing, visualization, machine learning, and development environments.
 
 ## Notes
 
@@ -228,3 +199,4 @@ preparations.
     ```
 
   At the resulting interactive prompt, simply select the appropriate number (97 for en_US.UTF-8 for example) for your locale and the system will regenerate the appropriate one and apply it system wide for you. Occasionally, generation of locale files are corrupted and need repair. This has been a glitch for years. This handles that for you, albeit through manual reconfiguration.
+- If you're a bit more adventurous about your setup, using a Docker volume for the user homedir, or even just a Notebooks directory under it, would be a logical choice of possible user defined changes.
