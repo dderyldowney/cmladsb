@@ -121,13 +121,17 @@ This set of modules ensures robust, scalable, and efficient workflows across dat
 
 ## Additional Information
 
-The project provides an additional set of information on the various descriptions and examples of the breakdown of AI intelligence levels. It covers [`Artificial Intelligence (AI), Artificial Narrow Intelligence (ANI), and Artificial General Intelligence (AGI)`](AI_ANI_AGI.md) at a generalistic viewpoint. For those coming to platforms like this with the intent of learning Artificial intelligence, this is definitely a read for you.
+This project offers a generalistic exploration of the different levels of artificial intelligence, providing detailed descriptions and examples of their distinctions. It covers [`Artificial Intelligence (AI), Artificial Narrow Intelligence (ANI), and Artificial General Intelligence (AGI)`](AI_ANI_AGI.md) from a broad and insightful perspective.
 
-As I have time, I summarize the content of the git log stream into [WORK_DONE.md](WORK_DONE.md) as a more human readable and digestable format. I fully admit to using ANI services to accomplish this.
+For those seeking to understand AI fundamentals, this resource serves as an essential guide, making it an invaluable read for learners and enthusiasts alike.
 
-## Notes
+## Project Git Log
 
-- WARNING: The image(s) resulting from this project are quite large. Be prepared for this in your storage
+As I have time, I summarize the content of the git log stream into [WORK_DONE.md](WORK_DONE.md) as a more human readable and digestable format. I fully admit to using ANI services to accomplish this. This is currently a manual process linked to my rememberance of rerunning the creation task.
+
+## Project Notes
+
+- **WARNING:** The image(s) resulting from this project are quite large. Be prepared for this in your storage
 preparations.
 - The container is optimized for development with Python using Jupyter Lab. Node.js is included for Jupyter Lab's use.
 - The `requirements.txt` file should be placed in the same directory as the Dockerfile before building the image.
