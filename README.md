@@ -135,8 +135,86 @@ Then, to create, and immediately use, a container from the resulting image:
 docker run --rm -it -p 8888:8888 cmladsb
 ```
 
+## Capabilities Provisioning
+
+By default, this project includes several Python packages specifically to provide code formatting, debugging, data analysis, machine learning, visualization, and computer vision capabilities. Below is a breakdown of each of those packages and its purpose.
+
+### Development & Code Quality
+
+- **[`black`](https://github.com/psf/black)**  
+  A code formatter that ensures consistent styling across Python files. It enforces PEP 8 compliance and improves readability by automatically formatting code.
+
+- **[`debugpy`](https://github.com/microsoft/debugpy)**  
+  A debugger for Python that integrates with VS Code and Jupyter notebooks. It allows for interactive debugging, breakpoints, and step execution.
+
+- **[`flake8`](https://github.com/PyCQA/flake8)**  
+  A static code analysis tool that enforces coding style rules and detects potential errors, such as unused imports and undefined variables.
+
+### Interactive Computing & Notebooks
+
+- **[`ipykernel`](https://github.com/ipython/ipykernel)**  
+  Provides the kernel for Jupyter notebooks, enabling interactive Python execution within JupyterLab.
+
+- **[`ipython`](https://github.com/ipython/ipython)**  
+  An enhanced interactive Python shell with features such as syntax highlighting, tab completion, and history management.
+
+- **[`jupyterlab`](https://github.com/jupyterlab/jupyterlab)**  
+  The core JupyterLab IDE, which provides an interactive environment for working with Jupyter notebooks, Python scripts, and data science workflows.
+
+- **[`jupyterlab-server`](https://github.com/jupyterlab/jupyterlab_server)**  
+  Supports JupyterLab’s backend functionality, allowing it to serve notebooks and integrate with extensions.
+
+### Data Science & Machine Learning
+
+- **[`numpy`](https://github.com/numpy/numpy)**  
+  A fundamental package for numerical computing, supporting multi-dimensional arrays, linear algebra operations, and mathematical functions.
+
+- **[`pandas`](https://github.com/pandas-dev/pandas)**  
+  A powerful data manipulation library providing data structures like DataFrames and Series for structured data analysis.
+
+- **[`scikit-learn`](https://github.com/scikit-learn/scikit-learn)**  
+  A machine learning library with tools for data preprocessing, classification, regression, clustering, and model evaluation.
+
+- **[`scipy`](https://github.com/scipy/scipy)**  
+  A scientific computing library that provides numerical integration, optimization, statistics, and signal processing functionalities.
+
+- **[`torch`](https://pytorch.org/)**  
+  The PyTorch deep learning framework, used for developing neural networks, computer vision models, and natural language processing applications.
+
+- **[`torchvision`](https://github.com/pytorch/vision)**  
+  A companion library to PyTorch that provides datasets, model architectures, and image processing utilities for deep learning applications.
+
+- **[`pydantic`](https://github.com/pydantic/pydantic)**  
+  A data validation and settings management library based on Python type hints. Useful for ensuring correct input data structures in ML pipelines and APIs.
+
+### Data Visualization
+
+- **[`matplotlib`](https://github.com/matplotlib/matplotlib)**  
+  A comprehensive plotting library for creating static, animated, and interactive visualizations.
+
+- **[`seaborn`](https://github.com/mwaskom/seaborn)**  
+  A statistical data visualization library based on Matplotlib, providing high-level functions for drawing attractive and informative graphics.
+
+### Computer Vision
+
+- **[`opencv-python`](https://github.com/opencv/opencv-python)**  
+  A computer vision library used for image processing, feature detection, object recognition, and video analysis.
+
+### Utility Libraries
+
+- **[`tqdm`](https://github.com/tqdm/tqdm)**  
+  A progress bar library that enhances the readability of loops and long-running computations by displaying real-time progress.
+
+### Web UI & API Integration
+
+- **[`open-webui`](https://github.com/open-webui/open-webui)**  
+  A lightweight web-based UI for interacting with machine learning models, APIs, or chatbot applications.
+This particular package is what provides the web interface for this project.
+
 ## Notes
 
+- WARNING: The image(s) resulting from this project are quite large. Be prepared for this in your storage
+preparations.
 - The container is optimized for development with Python using Jupyter Lab. Node.js is included for Jupyter Lab's use.
 - The `requirements.txt` file should be placed in the same directory as the Dockerfile before building the image.
 - Customizing the build arguments allows you to tailor the container to your specific needs, such as using a different Python version or virtual environment name.
