@@ -1,5 +1,6 @@
 black==25.1.0
 debugpy==1.8.13
+fairly
 flake8==7.1.2
 ipykernel==6.29.5
 ipython==9.0.2
@@ -11,6 +12,7 @@ open-webui==0.5.20
 opencv-python
 pandas
 pydantic==2.10.6
+pytest==8.3.5
 scikit-learn
 scipy
 seaborn
