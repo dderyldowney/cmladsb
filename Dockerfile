@@ -66,7 +66,7 @@ USER $USER_NAME
 WORKDIR /home/$USER_NAME
 
 # Copy all necessary files and directories.
-COPY --chown=$USER_NAME:$USER_NAME requirements.txt README.md AI_ANI_AGI.md ./
+COPY --chown=$USER_NAME:$USER_NAME requirements.txt *.md ./
 COPY --chown=$USER_NAME:$USER_NAME .jupyter ./.jupyter
 COPY --chown=$USER_NAME:$USER_NAME .config ./.config
 
