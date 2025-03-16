@@ -2,86 +2,23 @@
 
 This Dockerfile creates a containerized environment tailored for ZeroToMastery's Complete AI and Machine Learning Bootcamp, but it is also versatile enough for general Python programming, Machine Learning, and Data Science tasks. Below is a concise breakdown of its purpose, components, and customization options.
 
-## Purpose
-
-The container is designed to run Jupyter Lab with Python and Node.js, providing a robust development environment for AI, Machine Learning, and Data Science projects. It includes essential tools like pyenv for Python version management, NVM for Node.js, and Oh My Zsh for an enhanced shell experience.
-
-## Base Image
-
-- **Base Image**: `debian:bookworm-slim`
-  - A lightweight Debian-based image is used for better reproducibility and reduced image size. This ensures a minimal environment with only essential packages.
-
 ## Maintainer Information
 
 - **Maintainer**: `D Deryl Downey <ddd@davidderyldowney.com>`
   - Contact information for the maintainer of this Dockerfile.
 
-## Exposed Ports
+## Purpose
 
-- **Port**: `8888`
-  - Jupyter Lab will be accessible on port 8888. This port is exposed to allow external access to the Jupyter Lab interface.
+The container is designed to run Jupyter Lab with Python and Node.js, providing a robust development environment for AI, Machine Learning, and Data Science projects. It includes essential tools like pyenv for Python version management, NVM for Node.js, and Oh My Zsh for an enhanced shell experience.
 
-## Build Arguments (Customizable Parameters)
 
-The following build arguments can be customized during the build process to tailor the container to specific needs:
+## Image Information
 
-- **USER_NAME**: `python_user` (default)
-  - The username for the non-root user created in the container. This user will have sudo privileges without a password.
-  - **Customization**: Set a different username by passing `--build-arg USER_NAME=<your_username>` during the build.
+All basic information regarding the image's settings like exposed ports, build arguments, and system dependencies are now maintained in a seperate file, found here: [`IMAGE_INFO.md`](IMAGE_INFO.md)
 
-- **UID**: `1000` (default)
-  - The user ID for the non-root user. This ensures the user has a specific UID, which can be useful for file permissions.
-  - **Customization**: Set a different UID by passing `--build-arg UID=<your_uid>` during the build.
+## User and Environment
 
-- **GID**: `1000` (default)
-  - The group ID for the non-root user. This ensures the user has a specific GID, which can be useful for file permissions.
-  - **Customization**: Set a different GID by passing `--build-arg GID=<your_gid>` during the build.
-
-- **DEBIAN_FRONTEND**: `noninteractive`
-  - Prevents interactive prompts during package installation, ensuring the build process is non-interactive.
-
-- **LOCALE**: `en_US.UTF-8` (default)
-  - The default locale for the resulting image.
-  - **Customization**: Set a different locale choice if en_US.UTF-8 is not workable for you.
-
-- **PYTHON_VERSION**: `3.12.9` (default)
-  - The version of Python to be installed using `pyenv`.
-  - **Customization**: Set a different Python version by passing `--build-arg PYTHON_VERSION=<your_python_version>` during the build.
-
-- **VENV_NAME**: `cmladsb` (default) [Composed from the first letter of each word in the ZTM course name]
-  - The name of the Python virtual environment created using `pyenv-virtualenv`.
-  - **Customization**: Set a different virtual environment name by passing `--build-arg VENV_NAME=<your_venv_name>` during the build.
-
-## System Dependencies
-
-The following system dependencies are installed in a single layer to reduce the image size:
-
-- `locales`, `procps`, `apt-transport-https`, `sudo`, `less`, `zsh`, `gnupg`, `curl`, `git`, `wget`, `vim`, `build-essential`, `libssl-dev`, `zlib1g-dev`, `libbz2-dev`, `libreadline-dev`, `libsqlite3-dev`, `llvm`, `libncursesw5-dev`, `xz-utils`, `tk-dev`, `libxml2-dev`, `libxmlsec1-dev`, `libffi-dev`, `liblzma-dev`, `ca-certificates`
-
-These dependencies are essential for development, including tools for version control, text editing, and building Python from source.
-The installation packages are removed from the image prior to layer export to further reduce the resulting image size.
-
-- The `locales` package is installed, and the default locale set to `en_US.UTF8`.
-  - You can change this at build time by changing the ``ARG LOCALE`` setting in the Dockerfile, or by passing the `--build-arg LOCALE=<your_locale>` flag on the command line at build time. Changes to this variable will propogate to all appropriate spots in the Dockerfile, as well as set the appropriate environment variables in the final image.
-
-## User Configuration
-
-- A non-root user (`python_user` by default) is created with the specified UID and GID.
-- The user is added to the `sudo` group with passwordless sudo privileges, allowing the user to execute commands with elevated privileges without a password.
-
-## Environment Setup
-
-- **PYENV_ROOT**: `/home/python_user/.pyenv`
-  - The root directory for `pyenv`, which is used to manage Python versions.
-- **PATH**: `$PYENV_ROOT/bin:$PATH`
-  - Adds `pyenv` to the PATH, making it accessible from the command line.
-
-## Shell and Development Tools
-
-- **Oh My Zsh**: Installed and configured with the `robbyrussell` theme and `git` plugin. This provides an enhanced shell experience with useful features and plugins.
-- **NVM**: Installed for managing Node.js versions. NVM ensures that the stable version of Node.js is downloaded and used every time the image is built. This is particularly important because Jupyter Lab relies on Node.js as its backend JavaScript engine for certain operations, such as handling extensions, widgets, and other interactive features. By using NVM, the container guarantees compatibility with Jupyter Lab's requirements while also providing flexibility for users to easily switch to a different Node.js version if needed. This allows developers to adapt to specific project needs or test with alternative versions of Node.js without modifying the Dockerfile itself.
-- **Pyenv**: Installed for managing Python versions. This allows you to install and switch between different versions of Python.
-- **Pyenv-virtualenv**: Installed for managing Python virtual environments. This allows you to create isolated Python environments for different projects.
+All information regarding the local User and their environment is now maintained in a seperate file, found here: [`USER_AND_ENVIRONMENT.md`](USER_AND_ENVIRONMENT.md)
 
 ## Node.js Installation
 
