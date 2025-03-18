@@ -1,9 +1,16 @@
 services:
   cmladsb_container:
     build: .
+    develop:
+      watch:
+        - path: .
+          target: /home/python_user
+          action: sync
     container_name: cmladsb_container
     ports:
       - "8888:8888"
+    env_file:
+      - .env
     depends_on:
       - db
     environment:
@@ -16,6 +23,8 @@ services:
     image: postgres:latest
     container_name: postgres_db
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
