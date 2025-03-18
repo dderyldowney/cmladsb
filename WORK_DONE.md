@@ -19,8 +19,8 @@
 ### **Dependency & Package Management**
 
 - Added **pytest** for testing.
-- Added **fairly** for research recordset management.
-- Cleaned up `requirements.txt`, reducing it to core and necessary addon packages.
+- Added **fairly** for research record set management.
+- Cleaned up `requirements.txt`, reducing it to the core and necessary add-on packages.
 
 ### **Dockerfile & Dev Environment Improvements**
 
@@ -68,3 +68,4 @@
 - **Streamlined development container setup** for a more robust workflow.
 
 These updates indicate an ongoing effort to **enhance documentation, streamline dependencies, improve developer experience, and refine the Docker-based environment**. 🚀
+
