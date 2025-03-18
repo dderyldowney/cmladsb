@@ -36,13 +36,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     bash zsh gnupg ssh curl wget git vim build-essential libssl-dev \
     zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
-    libffi-dev liblzma-dev \
+    libffi-dev liblzma-dev postgresql postgresql-client postgresql-contrib libpq-dev \
     && locale-gen "$LOCALE" && update-locale "$LOCALE" \
     && apt-get clean && rm -rf /var/lib/apt/lists/* \
     && groupadd -g $GID $USER_NAME \
     && useradd -m -u $UID -g $GID -s /usr/bin/zsh $USER_NAME \
     && usermod -aG sudo $USER_NAME \
     && echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$USER_NAME \
+    && mkdir -p /home/$USER_NAME/workspace && chown -R $USER_NAME:$USER_NAME /home/$USER_NAME/workspace \
     && su - $USER_NAME -c "wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O - | bash" \
     && su - $USER_NAME -c "wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash" \
     && su - $USER_NAME -c "git clone https://github.com/pyenv/pyenv.git /home/$USER_NAME/.pyenv" \
@@ -66,7 +67,8 @@ USER $USER_NAME
 WORKDIR /home/$USER_NAME
 
 # Copy all necessary files and directories.
-COPY --chown=$USER_NAME:$USER_NAME requirements.txt *.md ./
+COPY --chown=$USER_NAME:$USER_NAME requirements.txt ./
+COPY --chown=$USER_NAME:$USER_NAME *.md ./docs/
 COPY --chown=$USER_NAME:$USER_NAME .jupyter ./.jupyter
 COPY --chown=$USER_NAME:$USER_NAME .config ./.config
 
