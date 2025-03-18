@@ -14,11 +14,11 @@ The container is designed to run Jupyter Lab with Python and Node.js, providing 
 
 ## Image Information
 
-All basic information regarding the image's settings like exposed ports, build arguments, and system dependencies are now maintained in a seperate file, found here: [`IMAGE_INFO.md`](IMAGE_INFO.md)
+All basic information regarding the image's settings like exposed ports, build arguments and system dependencies are now maintained in a separate file, found here: [`IMAGE_INFO.md`](IMAGE_INFO.md)
 
 ## User and Environment
 
-All information regarding the local User and their environment is now maintained in a seperate file, found here: [`USER_AND_ENVIRONMENT.md`](USER_AND_ENVIRONMENT.md)
+All information regarding the local User and their environment is now maintained in a separate file, found here: [`USER_AND_ENVIRONMENT.md`](USER_AND_ENVIRONMENT.md)
 
 ## Node.js Installation
 
@@ -41,7 +41,7 @@ pip freeze --local > requirements.txt
 
 ## Enhanced Code Editing Features
 
-Jupyter Lab support for LSP (Language Server Protocol) has been ebabled for tab completion in notebooks and Python files, powered by the Jedi Language Server. The CodeMirror extension is also enabled ensuring syntax highlighting and automatic addition of matching brackets and quotes as you type.
+Jupyter Lab support for LSP (Language Server Protocol) has been enabled for tab completion in notebooks and Python files, powered by the Jedi Language Server. The CodeMirror extension is also enabled ensuring syntax highlighting and automatic addition of matching brackets and quotes as you type.
 
 ## Default Shell
 
@@ -127,7 +127,7 @@ For those seeking to understand AI fundamentals, this resource serves as an esse
 
 ## Project Git Log
 
-As I have time, I summarize the content of the git log stream into [WORK_DONE.md](WORK_DONE.md) as a more human readable and digestable format. I fully admit to using ANI services to accomplish this. This is currently a manual process linked to my rememberance of rerunning the creation task.
+As I have time, I summarize the content of the git log stream into [WORK_DONE.md](WORK_DONE.md) in a more human-readable and digestible format. I fully admit to using ANI services to accomplish this. This is currently a manual process linked to my remembrance of rerunning the creation task.
 
 ## Project Notes
 
@@ -136,7 +136,7 @@ preparations.
 - The container is optimized for development with Python using Jupyter Lab. Node.js is included for Jupyter Lab's use.
 - The `requirements.txt` file should be placed in the same directory as the Dockerfile before building the image.
 - Customizing the build arguments allows you to tailor the container to your specific needs, such as using a different Python version or virtual environment name.
-- If you run the container detached, you can find the token needed for login under the container's 'Vew Details', which is under the 3-dot elipse to the far right of it's name in the Docker Desktop GUI's Containers view. It's between the Stop and the Delete icons.
+- If you run the container detached, you can find the token needed for login under the container's 'View Details', which is under the 3-dot ellipse to the far right of its name in the Docker Desktop GUI's Containers view. It's between the Stop and the Delete icons.
 - The container can be used for general Python programming, without running Jupyter Lab, easily by simply overriding the CMD instruction from the command line. More information can be found in the associated [Docker documentation](https://docs.docker.com/get-started/docker-concepts/running-containers/overriding-container-defaults/)
 - If you find that locales are causing an issue for you, please do the following.
 
@@ -145,5 +145,6 @@ preparations.
     sudo dpkg-reconfigure locales
     ```
 
-  At the resulting interactive prompt, simply select the appropriate number (97 for en_US.UTF-8 for example) for your locale and the system will regenerate the appropriate one and apply it system wide for you. Occasionally, generation of locale files are corrupted and need repair. This has been a glitch for years. This handles that for you, albeit through manual reconfiguration.
-- If you're a bit more adventurous about your setup, using a Docker volume for the user homedir, or even just a Notebooks directory under it, would be a logical choice of possible user defined changes.
+  At the resulting interactive prompt, simply select the appropriate number (97 for en_US.UTF-8 for example) for your locale and the system will regenerate the appropriate one and apply it system-wide for you. Occasionally, the generation of locale files is corrupted and needs repair. This has been a glitch for years. This handles that for you, albeit through manual reconfiguration.
+- If you're a bit more adventurous about your setup, using a Docker volume for the user home dir, or even just a Notebooks directory under it, would be a logical choice for possible user-defined changes.
+
