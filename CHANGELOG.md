@@ -6,7 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ## [2025-03-19]
 
-* **Reworked README**: Made it more concise and professional.
+* **Reworked Documentation**: Made it more concise and professional.
+  * Reworked all Markdown documentation to be more concise.
+  * Moved `WORK_DONE.md` to `CHANGELOG.md` and edited linkage in README.md
+  * Redid `CHANGELOG.md` format to be that of a git Changelog.
 
 ## [2025-03-18]
 
