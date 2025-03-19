@@ -68,7 +68,7 @@ WORKDIR /home/$USER_NAME
 
 # Copy all necessary files and directories.
 COPY --chown=$USER_NAME:$USER_NAME requirements.txt ./
-COPY --chown=$USER_NAME:$USER_NAME *.md ./docs/
+COPY --chown=$USER_NAME:$USER_NAME docs ./docs
 COPY --chown=$USER_NAME:$USER_NAME .jupyter ./.jupyter
 COPY --chown=$USER_NAME:$USER_NAME .config ./.config
 
