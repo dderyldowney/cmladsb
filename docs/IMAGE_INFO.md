@@ -77,4 +77,4 @@ The image includes carefully selected development packages installed in a single
 **Important Note**: All package installation caches are automatically cleared after installation to optimize the final image size and reduce the container footprint.
 
 * This is achieved with `apt-get clean` to remove cached package files and `rm -rf /var/lib/apt/lists/*` to delete package lists. While requiring a manual `sudo apt update` to refresh packages, this minimizes image size as much as possible while retaining essential dependencies.
-* The final image remains large due to the Computer Vision support packages, however, attention to removing unnecessary installation packages and package lists remains, as always, crucial in a containerized environment to optimize deployment speed and resource usage.
+* The final image remains large, due to the combined `PyTorch` and `Computer Vision` support packages, however, attention to removing unnecessary installation packages and package lists remains, as always, crucial in a containerized environment to optimize deployment speed and resource usage.
