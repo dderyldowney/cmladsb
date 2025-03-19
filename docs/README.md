@@ -75,7 +75,7 @@ docker run --rm -it -p 8888:8888 cmladsb
 
 ## Additional Insights
 
-* Deep dive into AI concepts: [`AI_ANI_AGI.md`](AI_ANI_AGI.md)
+* Shallow, and generalized, dive into AI concepts: [`AI_ANI_AGI.md`](AI_ANI_AGI.md)
 * Human-readable Git log summaries: [`CHANGELOG.md`](CHANGELOG.md)
 
 ## Important Considerations
