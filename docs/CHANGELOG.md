@@ -1,3 +1,8 @@
+* (4e66d1a) Minor fixes to README.md format, layout, and spelling errors by D Deryl Downey on 2025-03-21
+* (1a2bdc3) Added information regarding docker-compose.yaml by D Deryl Downey on 2025-03-21
+* (49e3a16) Fixed wording regarding the conceptual level of the AI concepts document. by D Deryl Downey on 2025-03-19
+* (f42ca8e) Modified IMAGE_INFO to document where the largest space offenders come into the image. by D Deryl Downey on 2025-03-19
+* (0c1bec3) Changed CHANGELOG.md to currently recommended changelog styling format. by D Deryl Downey on 2025-03-19
 * (6ed82bd) Moved all the Markdown files to under docs/ to mimic image environment. Modified Dockerfile to reflect that change in the associated COPY command. by D Deryl Downey on 2025-03-19
 * (51d979c) Updated the CHANGELOG.md to reflect all commits up to, and including,  the one just before this specific post. by D Deryl Downey on 2025-03-19
 * (e28b3c4) Show that WORK_DONE.md was deleted and CHANGELOG.md now in use. by D Deryl Downey on 2025-03-19
