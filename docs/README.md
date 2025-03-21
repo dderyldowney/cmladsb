@@ -45,7 +45,7 @@ docker run --rm -it -p 8888:8888 cmladsb
 
 The `docker-compose.yaml` file simplifies the build and run process.
 
-* To build the image for first time use:
+* To build the image for the first time, use:
 
     ```bash
     docker-compose build
@@ -53,13 +53,13 @@ The `docker-compose.yaml` file simplifies the build and run process.
 
     This command builds, but does nothing further with, the container image defined in the `docker-compose.yaml` file.
 
-    To build the image for first time, and run it as detached use:
+    To build the image for first time, *and* run it detached, use:
 
     ```bash
     docker-compose up --build -d
     ```
 
-* This command will start the container in detached mode, allowing you to run it in the background.
+* This command will build and start the container in detached mode, allowing you to run it in the background.
 
   * The `--build` flag ensures that the image is built before starting the container, which is useful if you have made changes to the Dockerfile or the application code.
 
@@ -154,6 +154,11 @@ The database defaults to `default_db`, but can be changed in the `docker-compose
 ### **Web & API Integration**
 
 * `open-webui`
+
+### **Database Management**
+
+* libpq-dev – Header files for PostgreSQL module building.
+* PostgreSQL client – Command-line tool for PostgreSQL.
 
 ## Additional Insights
 
