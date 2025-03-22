@@ -123,6 +123,16 @@ The database defaults to `default_db`, but can be changed in the `docker-compose
 
 * The container is set to restart automatically if it stops, ensuring that your work is not interrupted.
 
+### Networking
+
+* The docker-compose.yaml file defines `cmladsb_network`, a secure, isolated, named bridge network that facilitates inter-container communication.
+* This provides several benefits:
+  * Simplified networking setup
+  * Simplified service discovery and communication
+  * DNS-based resolution between containers (e.g., api, db)
+  * Local, secure, network isolation from unrelated containers
+  * Easier teardown and environment management
+
 ## Preinstalled Modules
 
 ### **Development & Debugging**
