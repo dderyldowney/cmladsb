@@ -1,3 +1,9 @@
+* (d43e0eb) Added .pre-commit-config.yaml for pre-commit use by D Deryl Downey on 2025-03-22
+* (04b76a2) Added pre-commit and jedi-language-server to the config by D Deryl Downey on 2025-03-22
+* (ee42aab) docs: refine network description in README and docker-compose.yaml by D Deryl Downey on 2025-03-22
+* (8d65e27) Added 'the' to a sentence. Just reviewing and fixing stuff. by D Deryl Downey on 2025-03-22
+* (c121964) Fixed some formatting for ULs. by D Deryl Downey on 2025-03-22
+* (79f8b83) Updated CHANGELOG.md with all commits up to this timestamp by D Deryl Downey on 2025-03-21
 * (4e66d1a) Minor fixes to README.md format, layout, and spelling errors by D Deryl Downey on 2025-03-21
 * (1a2bdc3) Added information regarding docker-compose.yaml by D Deryl Downey on 2025-03-21
 * (49e3a16) Fixed wording regarding the conceptual level of the AI concepts document. by D Deryl Downey on 2025-03-19
