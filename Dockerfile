@@ -79,4 +79,4 @@ RUN /usr/bin/zsh -c "source ~/.zshrc && pyenv virtualenv $PYTHON_VERSION $VENV_N
 SHELL ["/usr/bin/zsh"]
 
 # Prefer the CMD exec form (["echo", "Hello"]) over the shell form (echo "Hello") for better signal handling and consistency.
-CMD ["/usr/bin/zsh", "-c", "source ~/.zshrc && pyenv activate $VENV_NAME && jedi-language-server --tcp --host 0.0.0.0 --port 2087 && jupyter lab --no-browser --ip=0.0.0.0 --port=8888"]
+CMD ["/usr/bin/zsh", "-c", "source ~/.zshrc && pyenv activate $VENV_NAME && jupyter lab --no-browser --ip=0.0.0.0 --port=8888"]
