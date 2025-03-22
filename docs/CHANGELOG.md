@@ -1,3 +1,49 @@
+# 🧾 Project Changelog Summary
+
+**Period:** Feb 13 – Mar 22, 2025
+**Maintainer:** D Deryl Downey
+
+This changelog highlights key improvements across tooling, documentation, containerization, and development workflows.
+
+---
+
+## 🛠️ Tooling & Developer Experience
+
+* Integrated **`.pre-commit-config.yaml`** with linters and `jedi-language-server`.
+* Added **`.devcontainer/`** for VS Code remote development.
+* Enhanced JupyterLab with language server support, auto-matching brackets/quotes, and server config tweaks.
+* Optimized and minimized `requirements.txt` to include only core and addon packages.
+
+## 📦 Docker & Containerization
+
+* Modularized and optimized **Dockerfile** for cleaner layering and smaller image size.
+* Added `.env` support and `docker compose watch` capability.
+* Improved `COPY` strategies for documentation inclusion during image builds.
+* Implemented a locale generation workaround to avoid build issues.
+
+## 📘 Documentation Overhaul
+
+* Completely restructured **`README.md`** for clarity, professional tone, and modularity.
+* Replaced `WORK_DONE.md` with **`CHANGELOG.md`** using Git-style conventions.
+* Created linked AI concept files: `AI_ANI_AGI.md`, with proper references and COPY inclusion.
+* Multiple grammar, spelling, and formatting fixes across all documentation.
+
+## ⚙️ Feature Enhancements
+
+* Added **PostgreSQL client and headers** to the environment.
+* Integrated **`fairly`** for dataset management and **`pytest`** for testing.
+* Streamlined provisioning sections in documentation to reflect actual container capability.
+
+## 🧱 Initial Setup (Feb 13–15)
+
+* Bootstrapped Docker-based Python environment.
+* Established virtual environment with core dependencies and a working `requirements.txt`.
+* Added `.gitignore`, basic `README.md`, and initialized repository layout.
+
+---
+
+> 📌 **Status:** Project infrastructure and documentation are now in a stable, production-ready format with reproducible builds, automated pre-commit checks, and a clear development workflow.
+
 * (d43e0eb) Added .pre-commit-config.yaml for pre-commit use by D Deryl Downey on 2025-03-22
 * (04b76a2) Added pre-commit and jedi-language-server to the config by D Deryl Downey on 2025-03-22
 * (ee42aab) docs: refine network description in README and docker-compose.yaml by D Deryl Downey on 2025-03-22
@@ -10,7 +56,7 @@
 * (f42ca8e) Modified IMAGE_INFO to document where the largest space offenders come into the image. by D Deryl Downey on 2025-03-19
 * (0c1bec3) Changed CHANGELOG.md to currently recommended changelog styling format. by D Deryl Downey on 2025-03-19
 * (6ed82bd) Moved all the Markdown files to under docs/ to mimic image environment. Modified Dockerfile to reflect that change in the associated COPY command. by D Deryl Downey on 2025-03-19
-* (51d979c) Updated the CHANGELOG.md to reflect all commits up to, and including,  the one just before this specific post. by D Deryl Downey on 2025-03-19
+* (51d979c) Updated the CHANGELOG.md to reflect all commits up to, and including, the one just before this specific post. by D Deryl Downey on 2025-03-19
 * (e28b3c4) Show that WORK_DONE.md was deleted and CHANGELOG.md now in use. by D Deryl Downey on 2025-03-19
 * (7ce4965) Reworked all documentation to be more concise. Moved WORK_DONE.md to CHANGELOG.md and edited linkage in README.md Redid CHANGELOG.md format to be that of a git Changelog format. by D Deryl Downey on 2025-03-19
 * (8ad83a2) Reworked the README to be more concise yet professional. by D Deryl Downey on 2025-03-19
@@ -68,3 +114,4 @@
 * (70eae45) Fixed all errors in Dockerfile. by D Deryl Downey on 2025-02-15
 * (b5236d6) Added base skeleton for Dockerizing and pip-inducing base package list. Creates, loads, and pip-installs into venv 'cmladsb'. by D Deryl Downey on 2025-02-14
 * (cb69443) Initial commit of ZTM's Complete Machine Learning and Data Science Bootcamp course by D Deryl Downey on 2025-02-13
+* (a2f3b8d) Added .gitignore by D Deryl Downey on 2025-02-13
