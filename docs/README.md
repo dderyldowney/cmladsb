@@ -98,10 +98,10 @@ The `docker-compose.yaml` file simplifies the build and run process.
 
     It does NOT automatically pull or update the base image in your Dockerfile unless:
 
-    - You explicitly run `docker compose build --pull`, or
-    - You run `docker compose up --build --pull`, or
-    - You run `docker compose up --build` and the base image has changed, or
-    - You modify the defined base image in the `FROM` line of your Dockerfile and manually rebuild.
+  * You explicitly run `docker compose build --pull`, or
+    * You run `docker compose up --build --pull`, or
+    * You run `docker compose up --build` and the base image has changed, or
+    * You modify the defined base image in the `FROM` line of your Dockerfile and manually rebuild.
 
     **NOTE:** This is a good practice to ensure that you are using the latest version of the base image.
     However, if you want to ensure that you are always using the latest version of the base image, you can add the --pull flag to the `docker compose build` command. This will pull the latest version of the base image before building your container.
