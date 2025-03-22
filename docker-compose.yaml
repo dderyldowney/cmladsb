@@ -9,12 +9,14 @@ services:
     container_name: cmladsb_container
     ports:
       - "8888:8888"
+      - "2087:2087"
     env_file:
       - .env
     depends_on:
       - db
     environment:
       DATABASE_URL: "postgresql://python_user:python_password@db:5432/python_db"
+      JUPYTER_ENABLE_LAB: "yes"  # Enable JupyterLab
     volumes:
       - cmladsb_workspace:/home/python_user/workspace
     restart: unless-stopped
@@ -44,4 +46,3 @@ networks:
   default:
     driver: bridge
     name: cmladsb_network
-    

@@ -16,7 +16,7 @@ ARG LOCALE=en_US.UTF-8
 ARG PYTHON_VERSION=3.12.9
 ARG VENV_NAME=cmladsb
 
-# Customization Note: Changing the ARG VENV_NAME sets the container's VENV_NAME environment variable. 
+# Customization Note: Changing the ARG VENV_NAME sets the container's VENV_NAME environment variable.
 # This allows you to define the default virtual environment name, as referenced in the CMD instruction.
 
 # Set environment variables
@@ -29,7 +29,7 @@ ENV PYTHONIOENCODING=utf-8
 ENV TERM=xterm-256color
 ENV VENV_NAME=$VENV_NAME
 
-# Installs system dependencies, create the user, install Oh My Zsh, NVM, Pyenv, pyenv-virtualenv, 
+# Installs system dependencies, create the user, install Oh My Zsh, NVM, Pyenv, pyenv-virtualenv,
 # installs and globally sets the Python version, and does so as a single image layer.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     locales procps apt-transport-https ca-certificates sudo less \
@@ -79,4 +79,4 @@ RUN /usr/bin/zsh -c "source ~/.zshrc && pyenv virtualenv $PYTHON_VERSION $VENV_N
 SHELL ["/usr/bin/zsh"]
 
 # Prefer the CMD exec form (["echo", "Hello"]) over the shell form (echo "Hello") for better signal handling and consistency.
-CMD ["/usr/bin/zsh", "-c", "source ~/.zshrc && pyenv activate $VENV_NAME && jupyter lab --no-browser --ip=0.0.0.0 --port=8888"]
+CMD ["/usr/bin/zsh", "-c", "source ~/.zshrc && pyenv activate $VENV_NAME && jedi-language-server --tcp --port 2087 && jupyter lab --no-browser --ip=0.0.0.0 --port=8888"]
