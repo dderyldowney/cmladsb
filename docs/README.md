@@ -53,7 +53,7 @@ The `docker-compose.yaml` file simplifies the build and run process.
 
     This command builds, but does nothing further with, the container image defined in the `docker-compose.yaml` file.
 
-    To build the image for first time, *and* run it detached, use:
+    To build the image for the first time, *and* run it detached, use:
 
     ```bash
     docker-compose up --build -d
