@@ -1,12 +1,12 @@
 services:
   cmladsb_container:
     build: .
+    container_name: cmladsb_container
     develop:
       watch:
         - path: .
           target: /home/python_user
           action: sync
-    container_name: cmladsb_container
     ports:
       - "8888:8888"
       - "2087:2087"
@@ -16,9 +16,10 @@ services:
       - db
     environment:
       DATABASE_URL: "postgresql://python_user:python_password@db:5432/python_db"
-      JUPYTER_ENABLE_LAB: "yes"  # Enable JupyterLab
     volumes:
       - cmladsb_workspace:/home/python_user/workspace
+    networks:
+      - cmladsb_network
     restart: unless-stopped
 
   db:
@@ -35,14 +36,20 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh:ro
+    networks:
+      - cmladsb_network
 
 volumes:
   cmladsb_workspace:
+    name: cmladsb_workspace
     driver: local
+
   postgres_data:
+    name: postgres_data
     driver: local
+
 networks:
-  default:
-    driver: bridge
+  cmladsb_network:
     name: cmladsb_network
+    driver: bridge
