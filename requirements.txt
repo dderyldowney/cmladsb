@@ -4,6 +4,7 @@ fairly
 flake8==7.1.2
 ipykernel==6.29.5
 ipython==9.0.2
+jedi-language-server
 jupyterlab==4.3.6
 jupyterlab-server==2.27.3
 matplotlib
@@ -11,6 +12,7 @@ numpy
 open-webui==0.5.20
 opencv-python
 pandas
+pre-commit
 pydantic==2.10.6
 pytest==8.3.5
 scikit-learn
