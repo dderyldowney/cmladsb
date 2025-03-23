@@ -44,6 +44,13 @@ This changelog highlights key improvements across tooling, documentation, contai
 
 > 📌 **Status:** Project infrastructure and documentation are now in a stable, production-ready format with reproducible builds, automated pre-commit checks, and a clear development workflow.
 
+* (8b7f9c2) Did not have to add jedi server to commandline as JupyterLab runs it directly by D Deryl Downey on 2025-03-22
+* (f1da08e) chore(compose): fix volume and network naming in docker-compose.yaml by D Deryl Downey on 2025-03-22
+* (1eb33fb) Added --host option to expose jedi-language-server by D Deryl Downey on 2025-03-22
+* (840eae5) Create docker-image.yml by D Deryl Downey on 2025-03-22
+* (1adb76a) docs(changelog): add high-level summary to top of CHANGELOG.md by D Deryl Downey on 2025-03-22
+* (0d5b690) Added necessary configuration for Jedi-Language-Server by D Deryl Downey on 2025-03-22
+* (a378960) Updated docs/CHANGELOG.md to reflect commit changes. by D Deryl Downey on 2025-03-22
 * (d43e0eb) Added .pre-commit-config.yaml for pre-commit use by D Deryl Downey on 2025-03-22
 * (04b76a2) Added pre-commit and jedi-language-server to the config by D Deryl Downey on 2025-03-22
 * (ee42aab) docs: refine network description in README and docker-compose.yaml by D Deryl Downey on 2025-03-22
@@ -56,7 +63,7 @@ This changelog highlights key improvements across tooling, documentation, contai
 * (f42ca8e) Modified IMAGE_INFO to document where the largest space offenders come into the image. by D Deryl Downey on 2025-03-19
 * (0c1bec3) Changed CHANGELOG.md to currently recommended changelog styling format. by D Deryl Downey on 2025-03-19
 * (6ed82bd) Moved all the Markdown files to under docs/ to mimic image environment. Modified Dockerfile to reflect that change in the associated COPY command. by D Deryl Downey on 2025-03-19
-* (51d979c) Updated the CHANGELOG.md to reflect all commits up to, and including, the one just before this specific post. by D Deryl Downey on 2025-03-19
+* (51d979c) Updated the CHANGELOG.md to reflect all commits up to, and including,  the one just before this specific post. by D Deryl Downey on 2025-03-19
 * (e28b3c4) Show that WORK_DONE.md was deleted and CHANGELOG.md now in use. by D Deryl Downey on 2025-03-19
 * (7ce4965) Reworked all documentation to be more concise. Moved WORK_DONE.md to CHANGELOG.md and edited linkage in README.md Redid CHANGELOG.md format to be that of a git Changelog format. by D Deryl Downey on 2025-03-19
 * (8ad83a2) Reworked the README to be more concise yet professional. by D Deryl Downey on 2025-03-19
@@ -114,4 +121,3 @@ This changelog highlights key improvements across tooling, documentation, contai
 * (70eae45) Fixed all errors in Dockerfile. by D Deryl Downey on 2025-02-15
 * (b5236d6) Added base skeleton for Dockerizing and pip-inducing base package list. Creates, loads, and pip-installs into venv 'cmladsb'. by D Deryl Downey on 2025-02-14
 * (cb69443) Initial commit of ZTM's Complete Machine Learning and Data Science Bootcamp course by D Deryl Downey on 2025-02-13
-* (a2f3b8d) Added .gitignore by D Deryl Downey on 2025-02-13
